@@ -51,9 +51,24 @@ Now, ATTiny13a has only 1024 bytes of program memory.
 Below are examples of minimal implementation with different function to drive additional output and/or input.
 We will see how many bytes is required and how many bytes is left available for main logic.
 
+*Note: These examples are not yet tested with real hardware.
+
 ### 1. Simple Additional Output
+- Simple 8 pin blinky took 156 bytes (~15%), leaving 868 bytes.
+- Simple 16 pin blinky took 194 bytes (~19%), leaving 830 bytes.
+
 ### 2. Simple Additional Input
+- Simple 8 pin input took 136 bytes (~13%), leaving 888 bytes.
+- Simple 16 pin input took 152 bytes (~15%), leaving 872 bytes.
+
 ### 3. Simple Additional Input/Output
+- Simple 8 pin input & 8 pin output took 184 bytes (~18%), leaving 840 bytes.
+- Simple 16 pin input & 16 pin output took 226 bytes (~22%), leaving 798 bytes.
+
 ### 4. Additional Input/Output using 3 GPIO
+- Simple 8 pin input & 8 pin output took 200 bytes (~20%), leaving 824 bytes.
+- Simple 16 pin input & 16 pin output took 242 bytes (~24%), leaving 782 bytes.
+
 ### 5. I2C
+
 ### 6. UART
