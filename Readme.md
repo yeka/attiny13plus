@@ -1,3 +1,9 @@
+# Update (2018-10-12)
+
+I was planning to write I2C and UART using External GPIO. It looks troublesome, but seems worth it until someone suggest me N76E003AT20, a 8 bit 8051 microcontroller from Nuvoton. The price is US$25.35 for 100pcs, which is cheaper than ATTiny13a. This N76E003AT20 has 17 GPIO, 18Kb flash, 1Kb SRAM and support for UART and I2C. After finding this out, the rest of this project doesn't seem interesting anymore.
+
+So in conclusion, for cheap microcontroller, I recommend to use N76E003AT20 instead.
+
 # ATTiny13 Plus
 
 This project focus on utilizing ATTiny13 and extending its GPIO at lowest cost possible.
@@ -68,7 +74,3 @@ We will see how many bytes is required and how many bytes is left available for 
 ### 4. Additional Input/Output using 3 GPIO
 - Simple 8 pin input & 8 pin output took 200 bytes (~20%), leaving 824 bytes.
 - Simple 16 pin input & 16 pin output took 242 bytes (~24%), leaving 782 bytes.
-
-### 5. I2C
-
-### 6. UART
