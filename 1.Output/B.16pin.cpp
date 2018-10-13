@@ -1,15 +1,15 @@
 #include<avr/io.h>
 #include<util/delay.h>
 
-#define OE 0
+#define LATCH 0
 #define CLK 1
 #define DATA 2
-#define SHLD 3
 
 #define Lo(bit) (PORTB &= ~(1 << bit))
 #define Hi(bit) (PORTB |= (1 << bit))
 #define Clear(x, bit) (x &= ~(1 << bit))
 #define Set(x, bit) (x |= (1 << bit))
+#define Rise(bit) Lo(bit); Hi(bit);
 
 uint8_t outA = 0;
 uint8_t outB = 0;
@@ -20,9 +20,6 @@ void Output(uint8_t x);
 int main() {
     DDRB |= 0b00001111; // B.0 - B.3 = Output
     PORTB &= 0b11110000; // B.0 - B.3 Set to low
-
-    Lo(OE); // Disable output
-    Hi(SHLD); // Disable load
 
     while (1) {
         outA |= 1;
@@ -37,12 +34,9 @@ int main() {
 }
 
 void UpdateOutput() {
-    Lo(CLK);
-    Set(DDRB, DATA); // Set data as output
     Output(outB);
     Output(outA);
-    Hi(OE);
-    Lo(OE);
+    Rise(LATCH);
 }
 
 void Output(uint8_t x) {
@@ -52,8 +46,7 @@ void Output(uint8_t x) {
         } else {
             Lo(DATA);
         }
-        Hi(CLK);
-        Lo(CLK);
+        Rise(CLK);
         x = x << 1;
     }
 }

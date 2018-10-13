@@ -60,17 +60,17 @@ We will see how many bytes is required and how many bytes is left available for 
 *Note: These examples are not yet tested with real hardware.
 
 ### 1. Simple Additional Output
-- Simple 8 pin blinky took 156 bytes (~15%), leaving 868 bytes.
-- Simple 16 pin blinky took 194 bytes (~19%), leaving 830 bytes.
+- Simple 8 pin blinky took 152 bytes (~15%), leaving 872 bytes.
+- Simple 16 pin blinky took 188 bytes (~18%), leaving 836 bytes.
 
 ### 2. Simple Additional Input
 - Simple 8 pin input took 136 bytes (~13%), leaving 888 bytes.
 - Simple 16 pin input took 152 bytes (~15%), leaving 872 bytes.
 
 ### 3. Simple Additional Input/Output
-- Simple 8 pin input & 8 pin output took 184 bytes (~18%), leaving 840 bytes.
-- Simple 16 pin input & 16 pin output took 226 bytes (~22%), leaving 798 bytes.
+- Simple 8 pin input & 8 pin output took 176 bytes (~17%), leaving 848 bytes.
+- Simple 16 pin input & 16 pin output took 218 bytes (~21%), leaving 806 bytes.
 
 ### 4. Additional Input/Output using 3 GPIO
-- Simple 8 pin input & 8 pin output took 200 bytes (~20%), leaving 824 bytes.
-- Simple 16 pin input & 16 pin output took 242 bytes (~24%), leaving 782 bytes.
+- Simple 8 pin input & 8 pin output took 196 bytes (~19%), leaving 828 bytes.
+- Simple 16 pin input & 16 pin output took 238 bytes (~23%), leaving 786 bytes.

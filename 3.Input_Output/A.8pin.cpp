@@ -1,12 +1,13 @@
 #include<avr/io.h>
 
-#define OE 0
+#define LATCH 0
 #define CLK 1
 #define DATA 2
 #define SHLD 3
 
 #define Lo(bit) (PORTB &= ~(1 << bit))
 #define Hi(bit) (PORTB |= (1 << bit))
+#define Rise(bit) Lo(bit); Hi(bit);
 
 uint8_t outA = 0;
 uint8_t inA = 0;
@@ -15,8 +16,7 @@ void UpdateOutput();
 void UpdateInput();
 
 int main() {
-    DDRB |= (1 << SHLD) | (1 << OE) | (1 << DATA) | (1 << CLK); // Set as output
-    Lo(OE);
+    DDRB |= (1 << SHLD) | (1 << LATCH) | (1 << DATA) | (1 << CLK); // Set as output
     Hi(SHLD);
 
     while (1) {
@@ -32,7 +32,6 @@ int main() {
 
 void UpdateOutput() {
     DDRB |= 1 << DATA; // Switch DATA pin as output
-    Lo(CLK);
     uint8_t x = outA;
     for (uint8_t i = 0; i < 8; i++) {
         if (x & 128) {
@@ -40,12 +39,10 @@ void UpdateOutput() {
         } else {
             Lo(DATA);
         }
-        Hi(CLK);
-        Lo(CLK);
+        Rise(CLK);
         x = x << 1;
     }
-    Hi(OE);
-    Lo(OE);
+    Rise(LATCH);
 }
 
 void UpdateInput() {
